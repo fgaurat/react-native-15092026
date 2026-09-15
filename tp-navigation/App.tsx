@@ -38,7 +38,7 @@ const HomeTabs = createBottomTabNavigator({
 const RootStack = createNativeStackNavigator({
   screens: {
     Home: {
-      screen: HomeTabs,
+      screen: HomeScreen,
       
     },
     Profile: {
