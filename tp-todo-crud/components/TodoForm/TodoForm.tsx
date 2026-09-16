@@ -9,7 +9,7 @@ function showAlert(message: string) {
   }
 }
 
-const TodoForm = () => {
+const TodoForm = (onCreate) => {
   const [title, setTitle] = useState("");
 
   const valider = ()=>{
@@ -17,7 +17,7 @@ const TodoForm = () => {
     if (cleanValue.length === 0 ) {
       return;
     }
-    // onCreate({title:cleanValue,completed:false});
+    onCreate({title:cleanValue,completed:false});
     setTitle('');    
 
   }

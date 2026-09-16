@@ -23,7 +23,7 @@ export default function App() {
 
   const Navigation = createStaticNavigation(RootStack);
 
-  return <Navigation />
+  return (<Navigation />)
 }
 
 const styles = StyleSheet.create({
