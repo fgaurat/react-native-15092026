@@ -20,11 +20,15 @@ const TodoItem = ({ todo, isDeleting, disabled, onDelete }: Props) => {
     <View style={styles.row}>
       <Text>{todo.title}</Text>
       <Pressable
-        style={styles.deleteButton}
         accessibilityRole="button"
         accessibilityLabel={`Supprimer ${todo.title}`}
         accessibilityState={{ busy: isDeleting, disabled }}
         onPress={() => onDelete(todo.id as number)}
+        style={({ pressed }) => [
+            styles.deleteButton,
+            pressed && styles.deleteButtonPressed,
+            disabled && !isDeleting && styles.deleteButtonDisabled,
+        ]}        
       >
         {isDeleting ? (
           <ActivityIndicator size="small" color="#fff" />
