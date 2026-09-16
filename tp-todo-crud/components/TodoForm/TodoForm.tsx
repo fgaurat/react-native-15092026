@@ -1,5 +1,6 @@
 import { View, Text, TextInput, Button, Platform, Alert } from "react-native";
 import React, { useState } from "react";
+import { Todo } from "../../core/Todo";
 
 function showAlert(message: string) {
   if (Platform.OS === "web") {
@@ -9,7 +10,8 @@ function showAlert(message: string) {
   }
 }
 
-const TodoForm = (onCreate) => {
+const TodoForm = ({ onCreate }: { onCreate: (todo: Todo) => void }) => {
+
   const [title, setTitle] = useState("");
 
   const valider = ()=>{
