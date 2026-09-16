@@ -1,18 +1,40 @@
-import { View, Text,StyleSheet } from 'react-native'
-import React,{memo} from 'react'
-import { Todo } from '../../core/Todo'
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  ActivityIndicator,
+} from "react-native";
+import React, { memo } from "react";
+import { Todo } from "../../core/Todo";
 
 type Props = {
-    todo:Todo
-}
+  todo: Todo;
+  isDeleting: boolean;
+  disabled: boolean;
+  onDelete: (id: number) => void;
+};
 
-const TodoItem = ({todo}:Props) => {
+const TodoItem = ({ todo, isDeleting, disabled, onDelete }: Props) => {
   return (
     <View style={styles.row}>
       <Text>{todo.title}</Text>
+      <Pressable
+        style={styles.deleteButton}
+        accessibilityRole="button"
+        accessibilityLabel={`Supprimer ${todo.title}`}
+        accessibilityState={{ busy: isDeleting, disabled }}
+        onPress={() => onDelete(todo.id as number)}
+      >
+        {isDeleting ? (
+          <ActivityIndicator size="small" color="#fff" />
+        ) : (
+          <Text>Supprimer</Text>
+        )}
+      </Pressable>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   row: {
@@ -48,5 +70,4 @@ const styles = StyleSheet.create({
   },
 });
 
-
-export default memo(TodoItem)
+export default memo(TodoItem);
