@@ -46,6 +46,7 @@ const HomeScreen = () => {
           </View>
           <Ionicons name="chevron-forward" size={18} color={colors.muted} />
         </Pressable>
+        
         <Pressable
           onPress={() => navigation.navigate("ListsScreen")}
           style={({ pressed }) => [
@@ -62,6 +63,25 @@ const HomeScreen = () => {
           </View>
           <Ionicons name="chevron-forward" size={18} color={colors.muted} />
         </Pressable>
+
+        <Pressable
+          onPress={() => navigation.navigate("AnimationsScreen")}
+          style={({ pressed }) => [
+            styles.menuItem,
+            pressed && styles.menuItemPressed,
+          ]}
+        >
+          <View style={styles.menuIcon}>
+            <Ionicons name={"sparkles"} size={22} color={colors.primary} />
+          </View>
+          <View style={styles.menuTexts}>
+            <Text style={styles.menuTitle}>AnimationsScreen</Text>
+            <Text style={styles.menuSubtitle}>AnimationsScreen</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={18} color={colors.muted} />
+        </Pressable>
+
+
       </View>
     </ScrollView>
   );

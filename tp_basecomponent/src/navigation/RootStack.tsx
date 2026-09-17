@@ -8,6 +8,7 @@ import { ScrollView,StyleSheet } from 'react-native';
 import { spacing } from '../theme';
 import TouchEventsScreen from '../screens/TouchEventsScreen';
 import ListsScreen from '../screens/ListsScreen';
+import AnimationsScreen from '../screens/AnimationsScreen';
 
 
 
@@ -26,6 +27,9 @@ const RootStack = createNativeStackNavigator({
         },
         ListsScreen:{
             screen:ListsScreen
+        },
+        AnimationsScreen:{
+            screen:withScroll(AnimationsScreen)
         }
 
 
