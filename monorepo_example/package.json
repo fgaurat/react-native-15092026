@@ -1,0 +1,15 @@
+{
+  "name": "monorepo_example",
+  "version": "1.0.0",
+  "description": "",
+  "workspaces":["apps/*","packages/*"],
+  "main": "index.js",
+  "scripts": {
+    "main":"npm run dothemain --workspace main_app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
